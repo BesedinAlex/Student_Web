@@ -1,7 +1,7 @@
-const daysGiven = 100;
-const daysGone = 76;
-const daysLeft = daysGiven - daysGone;
-const a = daysLeft % 10;
+let daysGiven = 100;
+let daysGone = 76;
+let daysLeft = daysGiven - daysGone;
+let a = daysLeft % 10;
 
 if (daysLeft === 11 || daysLeft === 12 || daysLeft === 13 || daysLeft === 14) {
     console.log("Осталось " +daysLeft+ " дней.");
@@ -23,17 +23,17 @@ if (daysLeft === 11 || daysLeft === 12 || daysLeft === 13 || daysLeft === 14) {
 
 for (let i = 1; i < 10; i++) {
     let line = "";
-    for (j = 1; j < 10; j++) {
+    for (let j = 1; j < 10; j++) {
         let result = i * j;
         line += String(result) + " ";
     }
     console.log(line);
 }
 
-let name;
+let userName;
 do {
-    name = prompt("Enter your name", "John");
-} while (name === null);
+    userName = prompt("Enter your name", "John");
+} while (userName === null);
 console.log("Greetings, " + name + "!");
 
 // let i = 0;

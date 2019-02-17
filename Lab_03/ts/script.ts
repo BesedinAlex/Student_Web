@@ -7,8 +7,8 @@ console.log(newArr)
 let text = "вгде12аж 1аыа"
 let eng = ["a", "b", "v", "g", "d", "e", "e", "zh", "z", "i"]
 let rus = ["а", "б", "в", "г", "д", "е", "ё", "ж","з","и"]
-function translit(text) {
-    newText = ""
+function translit(text: String) {
+    let newText = ""
     for (let i = 0; i < text.length; i++) {
         let check = false
         for (let j = 0; j < rus.length; j++ ) {
@@ -23,7 +23,6 @@ function translit(text) {
     return newText
 }
 console.log(translit(text))
-
 // function foo(a, b) {
 //     console.log(a * b)
 //     return +a + +b // +a to make it number

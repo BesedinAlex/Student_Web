@@ -6,7 +6,7 @@ for (let i = 0; i < 10; i++) {
     }
     table.push(row);
 }
-document.write(table[5][5]);
+document.write(String(table[5][5]));
 
 let enter;
 do {
