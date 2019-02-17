@@ -1,3 +1,0 @@
-Lab_01 contains Exam task for HTML+CSS.
-Lab_04 contains Labs tasks for HTML+CSS.
-The rest are JS/TS labs.
