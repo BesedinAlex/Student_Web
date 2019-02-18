@@ -34,89 +34,79 @@ let userName;
 do {
     userName = prompt("Enter your name", "John");
 } while (userName === null);
-console.log("Greetings, " + name + "!");
+console.log("Greetings, " + userName + "!");
 
-// let i = 0;
-// console.log(i);
-// var j = 0;
-// console.log(i);
-// // var i = 0;      Global
-// let i = 0;         Local
-// const c = 'smth';  Constant
-// let i;             Undefined
-// let i = 0;         Number
-// let i = 'text';    String
-// let b = false;     Boolean
-// let c = null;      Any
-// console.log(typeof(i));
 
-// let str1 = "Line1";
-// let str2 = 'Line2';
-// let str3 = `Line3 ${i}`;
-// console.log(str3);
+// let - local; var - global; const - constant
 
-// let i = 0 / 0;
-// console.log(typeof(i));
-// let j = -10 / 0;
-// console.log(j);
+let a1
+console.log(typeof(a1));
+let a2 = 23.3
+console.log(typeof(a2))
+let a3 = 'text'
+console.log(typeof(a3))
+let a4 = false
+console.log(typeof(a4))
+let a5 = null
+console.log(typeof(a5))
 
-// let a = 10;
-// let b = 15;
+let str1 = "Line1";
+let str2 = 'Line2';
+let str3 = `Line3 ${a2}`;
+console.log(str3);
 
-// console.log(a);
-// console.log(a++);
-// console.log(a);
-// console.log(++a);
+let b1 = 0 / 0;
+console.log(typeof(b1));
+let b2 = -10 / 0;
+console.log(b2);
 
-// let a = 1;
-// let b = '1';
-// console.log(a == b);
-// console.log(a === b);
+let c = 10;
+console.log(c);
+console.log(c++);
+console.log(c);
+console.log(++c);
 
-// if (false) {
-//     console.log("false");
-// } else {
-//     console.log("true")
-// }
-// if (0 || null || undefined) {
-//     console.log("false");
-// }
+if (false)
+    console.log("false");
+else
+    console.log("true")
+if (0 || null || undefined)
+    console.log("false");
 
-// let i = 0;
-// let str = (i === 0) ? "i == 0" : "i != 0";
-// console.log(str);
+let d1 = 0;
+let d2 = (d1 === 0) ? "d1 == 0" : "d1 != 0";
+console.log(d2);
 
-// let i = 10;
-// switch (i) {
-//     case 10:
-//         console.log(10);
-//         break;
-//     default:
-//         console.log("smth else");
-//         break;
-// }
+let e = 10;
+switch (e) {
+    case 10:
+        console.log(10);
+        break;
+    default:
+        console.log("smth else");
+        break;
+}
 
-// let i = 10;
-// while (i-- > 0) {
-//     console.log(i);
-// }
+let f = 10;
+while (f-- > 0) {
+    console.log(f);
+}
+f = 10;
+do {
+    console.log(f);
+} while (f-- > 0);
 
-// do {
-//     console.log(i);
-// } while (i-- > 0);
+for (let i = 0; i < 10; i++) {
+    if (i === 4) {
+        // continue;  next i
+        break; // stops loop
+    }
+    console.log(i);
+}
 
-// for (let i = 0; i < 10; i++) {
-//     if (i === 4) {
-//         // continue;  next i
-//         break; // stops loop
-//     }
-//     console.log(i);
-// }
-// console.log(i);
+alert("alert");
+console.log(confirm("Yer or no?"));
+console.log(prompt("Enter smth", "PH"));
 
-// alert("alert");
-// console.log(confirm("Yer or no?"));
-// console.log(prompt("Enter smth", "PH"));
-
-// let str = "alert('!')";
-// console.log(eval(str));
+let g = "alert('!')";
+console.log(eval(g));
