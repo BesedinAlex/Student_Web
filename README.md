@@ -2,12 +2,13 @@
 
 Labs and Exams tasks for Web-Development disciplines.
 
-Lab_01 is JS lab. Also contains old HTML+CSS exam.<br>
-Lab_02 is JS lab.<br>
-Lab_03 is JS lab.<br>
-Lab_04 is JS lab. Also contains old HTML+CSS labs.<br>
-Lab_05 is JS lab.<br>
-Lab_06 is JS lab. You can find it [here](https://github.com/BesedinAlex/CatchTheBall).<br>
-Lab_07 is JS lab.
+Lab_01 (JS). Basic syntax. Also contains old HTML+CSS exam.<br>
+Lab_02 (JS). Arrays.<br>
+Lab_03 (JS). Functions.<br>
+Lab_04 (JS). Regular expressions.<br>
+Lab_05 (JS). Date.<br>
+Lab_06 (JS). "Catch the Ball" game. You can find it [here](https://github.com/BesedinAlex/CatchTheBall).<br>
+Lab_07 (JS). Objects.
 
-Note: All JavaScript labs were re-written with TypeScript (it wasn't any hard to be honest :D).
+Note: All JavaScript labs were re-written with TypeScript.<br>
+Reason: TypeScript is better than JavaScript.

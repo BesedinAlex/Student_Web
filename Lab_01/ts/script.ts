@@ -4,7 +4,7 @@ let daysLeft = daysGiven - daysGone;
 let a = daysLeft % 10;
 
 if (daysLeft === 11 || daysLeft === 12 || daysLeft === 13 || daysLeft === 14) {
-    console.log("Осталось " +daysLeft+ " дней.");
+    console.log("Осталось " + daysLeft + " дней.");
 } else {
     switch (a) {
         case 1:
@@ -35,9 +35,6 @@ do {
     userName = prompt("Enter your name", "John");
 } while (userName === null);
 console.log("Greetings, " + userName + "!");
-
-
-// let - local; var - global; const - constant
 
 let a1
 console.log(typeof(a1));
