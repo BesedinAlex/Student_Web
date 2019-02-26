@@ -1,7 +1,5 @@
 # Web tasks
 
-Labs and Exams tasks for Web-Development disciplines.
-
 Lab_01 (JS). Basic syntax. Also contains old HTML+CSS exam.<br>
 Lab_02 (JS). Arrays.<br>
 Lab_03 (JS). Functions.<br>
