@@ -1,12 +1,11 @@
-class ListData {
+class ListItem {
     id: number;
     name: string;
     parentID: number;
-    children?: ListData[];
+    children?: ListItem[];
 }
 
-// Forming a list from Database
-let databaseData: ListData[] = [
+let list: ListItem[] = [], databaseData: ListItem[] = [
     { id: 1, name: "Политех", parentID: null },
     { id: 2, name: "Организация", parentID: null },
     { id: 3, name: "Бухгалтерия", parentID: 2 },
@@ -21,20 +20,21 @@ let databaseData: ListData[] = [
     { id: 19, name: "2-я авиационная эскадрилия Боинг 737", parentID: 14 },
     { id: 21, name: "Лётно-методический отдел", parentID: 13 },
     { id: 22, name: "Ворующие 4,5% от моей степухи", parentID: 3 },
-    { id: 23, name: "А ведь я вышел из профсоюза!", parentID: 22}
-], list: ListData[] = [];
+    { id: 23, name: "А ведь я вышел из профсоюза!", parentID: 22 },
+    { id: 45, name: "Офис Blizzard Entertainment после сокращений", parentID: null },
+    { id: 46, name: "EMPTY", parentID: 45 }
+];
 
 for (let i = 0; i < databaseData.length; i++) {
     databaseData[i].children = [];
     for (let j = 0; j < databaseData.length; j++)
         if (databaseData[j].parentID === databaseData[i].id)
             databaseData[i].children.push(databaseData[j]);
-}
-for (let i = 0; i < databaseData.length; i++)
+    // Separate list to work with
     if (databaseData[i].parentID === null)
         list.push(databaseData[i]);
+}  
 
-// Printing the list
 window.onload = function() {
     let currentItem = list;
     while (currentItem.length > 0) {
@@ -54,6 +54,39 @@ window.onload = function() {
     }
 }
 
+let person = {
+    firstName: "Alex",
+    lastName: "Conver"
+};
+let personExtended = Object.create(person);
+personExtended.middleName = "John";
+for (let index in personExtended)
+    console.log(index + " = " + personExtended[index]);
+console.log("");
+for (let index in personExtended) {
+    if (personExtended.hasOwnProperty(index))
+        console.log(index + " = " + personExtended[index]);
+}
+
+let obj5 = {
+    x: 10,
+    y: 20,
+    get sum() {
+        return this.x + this.y;
+    },
+    set setX(x: number) {
+        this.x = x;
+    },
+    set setY(y: number) {
+        this.y = y;
+    },
+    do: function() {
+        console.log("do()");
+    }
+}
+obj5.setX = 30;
+console.log(obj5.sum);
+obj5.do();
 
 // let obj1 = {}
 // obj1.color = "green"
@@ -82,40 +115,6 @@ window.onload = function() {
 // }
 // for (let i = 1; i <= 4; i++)
 //     console.log(obj4["x" + i])
-
-// let person = {
-//     firstName: "Alex",
-//     lastName: "Conver"
-// }
-// let personExtended = Object.create(person)
-// personExtended.middleName = "John"
-// for (index in personExtended)
-//     console.log(index + " = " + personExtended[index])
-// console.log("<----------------->")
-// for (index in personExtended) {
-//     if (personExtended.hasOwnProperty(index))
-//         console.log(index + " = " + personExtended[index])
-// }
-
-// let obj5 = {
-//     x: 10,
-//     y: 20,
-//     get sum() {
-//         return this.x + this.y
-//     },
-//     set setX(x) {
-//         this.x = x
-//     },
-//     set seyY(y) {
-//         this.y = y
-//     },
-//     do: function() {
-//         console.log("do()")
-//     }
-// }
-// obj5.setX = 30
-// console.log(obj5.sum)
-// obj5.do()
 
 // function User(firstName, lastName) {
 //     this.firstName = firstName
