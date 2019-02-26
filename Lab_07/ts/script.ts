@@ -1,41 +1,56 @@
-// JS Analogue of class
-// function ListData(id, name, idParent) {
-//     this.id = id
-//     this.name = name
-//     this.idParent = idParent
-// }
 class ListData {
-    id: number
-    name: string
-    idParent: number
-    constructor(id: number, name: string, idParent: number) {
-        this.id = id
-        this.name = name
-        this.idParent = idParent
-    }
+    id: number;
+    name: string;
+    parentID: number;
+    children?: ListData[];
 }
-let list: Array<ListData> = []
-list.push(new ListData(1, "Main", null))
-list.push(new ListData(2, "First Parent", null))
-list.push(new ListData(3, "The First child of the First Parent", 2))
-list.push(new ListData(4, "The Second child of the First Parent", 2))
-list.push(new ListData(5, "Another Parent, probably no children", null))
-list.push(new ListData(6, "Test", 3))
-list.push(new ListData(7, "One more test", 6))
-list.push(new ListData(8, "The last one (just to be sure)", 7))
 
+// Forming a list from Database
+let databaseData: ListData[] = [
+    { id: 1, name: "Политех", parentID: null },
+    { id: 2, name: "Организация", parentID: null },
+    { id: 3, name: "Бухгалтерия", parentID: 2 },
+    { id: 6, name: "Отдел охраны", parentID: 2 },
+    { id: 7, name: "Караульная служба", parentID: 6 },
+    { id: 8, name: "Бюро пропусков", parentID: 6 },
+    { id: 12, name: "Патентный отдел", parentID: 2 },
+    { id: 13, name: "Лётная служба", parentID: 2 },
+    { id: 14, name: "Лётный отряд Боинг 737", parentID: 13 },
+    { id: 17, name: "Лётный отряд Боинг 747", parentID: 13 },
+    { id: 18, name: "1-я авиационная эксадрилия Боинг 737", parentID: 14 },
+    { id: 19, name: "2-я авиационная эскадрилия Боинг 737", parentID: 14 },
+    { id: 21, name: "Лётно-методический отдел", parentID: 13 },
+    { id: 22, name: "Ворующие 4,5% от моей степухи", parentID: 3 },
+    { id: 23, name: "А ведь я вышел из профсоюза!", parentID: 22}
+], list: ListData[] = [];
+
+for (let i = 0; i < databaseData.length; i++) {
+    databaseData[i].children = [];
+    for (let j = 0; j < databaseData.length; j++)
+        if (databaseData[j].parentID === databaseData[i].id)
+            databaseData[i].children.push(databaseData[j]);
+}
+for (let i = 0; i < databaseData.length; i++)
+    if (databaseData[i].parentID === null)
+        list.push(databaseData[i]);
+
+// Printing the list
 window.onload = function() {
-    let ul, li, ulChild
-    for (let i in list) {
-        if (list[i].idParent === null)
-            ul = document.querySelector("#list")
-        else
-            ul = document.querySelector("#item" + list[i].idParent)
-        li = document.createElement("li")
-        li.appendChild(document.createTextNode(list[i].name))
-        ulChild = li.appendChild(document.createElement("ul"))
-        ulChild.setAttribute("id", "item" + String(list[i].id))
-        ul.appendChild(li)
+    let currentItem = list;
+    while (currentItem.length > 0) {
+        if (document.querySelector("#item" + currentItem[0].id) === null) {
+            let ul = (currentItem[0].parentID === null) ? document.querySelector("#items") : document.querySelector("#item" + currentItem[0].parentID);
+            let li = document.createElement("li");
+            li.appendChild(document.createTextNode(currentItem[0].name));
+            li.appendChild(document.createElement("ul")).setAttribute("id", "item" + currentItem[0].id);
+            ul.appendChild(li);
+        }
+        if (currentItem[0].children.length > 0)
+            currentItem = currentItem[0].children;
+        else {
+            currentItem.shift();
+            currentItem = list;
+        }
     }
 }
 
