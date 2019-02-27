@@ -1,4 +1,4 @@
-# Web tasks
+# "Web-development" labs
 
 Lab_01 (JS). Basic syntax.<br>
 Lab_02 (JS). Arrays.<br>
