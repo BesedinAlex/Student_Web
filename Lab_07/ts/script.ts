@@ -1,4 +1,4 @@
-class ListItem {
+interface ListItem {
     id: number;
     name: string;
     parentID: number;

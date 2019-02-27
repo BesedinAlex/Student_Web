@@ -1,0 +1,35 @@
+#playground {
+    height: 750px;
+    width: 750px;
+    margin: auto;
+}
+#playground > div {
+    background-color: black;
+    border-radius: 220px;
+    width: 230px;
+    height: 230px;
+    margin: 10px;
+}
+.ball {
+    background-color: #ffffff;
+    width: 115px;
+    height: 115px;
+    margin: 57.5px;
+    border-radius: 90px;
+}
+.round {
+    float: left;
+}
+.points {
+    width: 85px;
+    height: 40px;
+    border: solid black 2px;
+    border-radius: 6px;
+    margin: auto;
+    margin-top: 20px;
+    padding-left: 2px;
+}
+#count {
+    margin: auto;
+    font-size: 35px;
+}

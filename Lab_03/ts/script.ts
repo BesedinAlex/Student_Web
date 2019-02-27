@@ -24,30 +24,13 @@ function translit(text: String) {
 }
 console.log(translit(text))
 
-
-// JS vs TS
-
-// function foo(a, b) {
-//     console.log(a * b)
-//     return +a + +b // +a to make it number
-// }
-// console.log(foo("2", "2"))
 function foo1(a: number, b: number) {
     console.log(a * b)
     return a + b
 }
 console.log(foo1(2, 3))
 
-// function logArr(arr) {
-//     if(!Array.isArray(arr)) {
-//         return false
-//     } else {
-//         for (let i = 0; i < arr.length; i++) {
-//             console.log(arr[i])
-//         }
-//     }
-// }
-function logArr(arr: Array<any>) {
+function logArr(arr: any[]) {
     for (let i = 0; i < arr.length; i++)
         console.log(arr[i])
 }
@@ -79,13 +62,6 @@ window.onload = function() {
     console.log(sq)
 }
 
-// function showStatus(name, status, callback) {
-//     if (typeof(callback) === "function") {
-//         callback();
-//     } else {
-//         console.log("Name " + name + ", status " + status)
-//     }
-// }
 function showStatus(name: string, status: string, callback: any = void 0) {
     if (typeof(callback) === "function")
         callback()  
