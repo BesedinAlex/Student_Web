@@ -33,3 +33,20 @@
     margin: auto;
     font-size: 35px;
 }
+#menu {
+    position: absolute;
+    left: -500px;
+    top: -500px;
+    background-color: white;
+    border: 3px solid #00fff2;
+    border-radius: 6px;
+    padding: 5px;
+}
+#menu-1, #menu-2 {
+    border: 1px solid #5eff00;
+    border-radius: 6px;
+    padding: 5px;
+}
+#menu-1:hover, #menu-2:hover {
+    background-color: #00fff2;
+}
