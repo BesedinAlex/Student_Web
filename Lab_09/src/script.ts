@@ -20,7 +20,7 @@ class Person {
         return "Doe";
     }
 }
-// Person.count = 0; // Static method of Person
+
 let person1 = new Person("Alex", "Conver");
 let person2 = new Person();
 person1.changeSex();
@@ -31,7 +31,6 @@ console.log(person1);
 console.log(person2);
 console.log(Person.count);
 console.log(Person.getDefaultFirstName());
-
 class HardWorker extends Person {
     id: number;
     constructor(firstName: string, lastName: string, id: number) {
@@ -42,7 +41,6 @@ class HardWorker extends Person {
 let worker1 = new HardWorker("Alex", "Conver", 123);
 worker1.changeSex();
 console.log(worker1);
-
 
 interface Figure {
     getPerimeter(): number;
