@@ -48,5 +48,10 @@
     padding: 5px;
 }
 #menu-1:hover, #menu-2:hover {
+    cursor: pointer;
     background-color: #00fff2;
+}
+.disabled:hover {
+    background: #ffffff !important;
+    cursor: default !important;
 }

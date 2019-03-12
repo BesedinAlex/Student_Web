@@ -39,16 +39,22 @@ window.onload = () => {
         document.getElementById("menu").style.left = String(event.clientX);
         document.getElementById("menu").style.top = String(event.clientY);
         return false;
-    }
+    };
     let game: any;
     document.querySelector("body").addEventListener("click", (event) => document.getElementById("menu").style.left = document.getElementById("menu").style.top = String(-500));
     document.getElementById("menu-1").addEventListener("click", (event) => {
-        playable = true;
-        game = setInterval(gameLoop, 1000);
+        if (!playable) {
+            document.getElementById("menu-1").classList.add("disabled");
+            document.getElementById("menu-2").classList.remove("disabled");
+            playable = true;
+            game = setInterval(gameLoop, 1000);
+        }
     });
     document.getElementById("menu-2").addEventListener("click", (event) => {
+        document.getElementById("menu-1").classList.remove("disabled");
+        document.getElementById("menu-2").classList.add("disabled");
         clearInterval(game);
         deactivateBall(randomNumber);
         playable = false;
     });
-}
+};
