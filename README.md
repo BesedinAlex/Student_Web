@@ -7,6 +7,8 @@
 05. Intervals and Timeouts.<br>
 06. "Catch the Ball" game.<br>
 07. Objects.<br>
-09. Classes.<br>
-10. Events.<br>
-11. Promises.<br>
+08. Classes.<br>
+09. Events.<br>
+10. Promises.<br>
+11. TypeScript and Angular.<br>
+12. Angular components.

@@ -1,12 +1,11 @@
 {
     "compilerOptions": {
-        "target": "es2015",
         "module": "commonjs",
         "noImplicitAny": true,
         "removeComments": true,
         "preserveConstEnums": true,
         "inlineSourceMap": true,
+        "rootDir": "src",
         "outDir": "dist"
-    },
-    "include": ["src"]
+    }
 }

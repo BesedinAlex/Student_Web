@@ -1,0 +1,15 @@
+<!--<h1>{{ title }}</h1>-->
+<!--<input type="text" [(ngModel)]="inputText">-->
+<!--<p>{{inputText}}</p>-->
+
+<!--<h3>Sensor number is {{ sensorId }} {{ sensorStatus }}</h3>-->
+<!--<button [disabled]="!allowNewSensor" (click)="onCreateSensor()">Add a sensor</button>-->
+<!--<p>{{ sensorCreationStatus }}</p>-->
+
+<span>First name: </span><input type="text" [(ngModel)]="firstName" placeholder="Enter your first name"><br>
+<span>Middle name: </span><input type="text" [(ngModel)]="middleName" placeholder="Enter your middle name"><br>
+<span>Last name: </span><input type="text" [(ngModel)]="lastName" placeholder="Enter your last name"><br>
+<button class="btn btn-primary" (click)="getInfo()">Get info</button>
+<p>{{displayFirstName}}</p>
+<p>{{displayMiddleName}}</p>
+<p>{{displayLastName}}</p>
