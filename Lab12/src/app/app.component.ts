@@ -5,36 +5,31 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  scanners = [new Scanner(), new Scanner(), new Scanner()];
-  constructor() {
-    for (const i of this.scanners) {
-      const div = document.createElement('div');
-      div.id = 'DIV' + i.name;
-      document.querySelector('#here').appendChild(div);
-      const p = document.createElement('p');
-      p.innerHTML = 'Test';
-      p.style.color = i.online ? '#00ff00' : '#ff0000';
-      document.querySelector('DIV' + i.name).appendChild(p);
-      const button = document.createElement('button');
-      document.querySelector('DIV' + i.name).appendChild(button);
+  sensors = [
+    {id: 100, active: randomBoolean()},
+    {id: 200, active: randomBoolean()},
+    {id: 300, active: randomBoolean()},
+    {id: 400, active: randomBoolean()}
+  ];
+  createSensor(active) {
+    this.sensors.push({id: randomInt(9999), active});
+    console.log(this.sensors);
+  }
+  removeSensor(id) {
+    for (let i = 0; i < this.sensors.length; i++) {
+      if (this.sensors[i].id === id) {
+        this.sensors.splice(i, 1);
+      }
     }
   }
 }
 
-class Scanner {
-  name: string;
-  online: boolean;
-  constructor() {
-    this.name = String(randomInt(100000));
-    this.online = randomBoolean();
-  }
-
-}
-
 function randomBoolean() {
-  return Math.random() > 0;
+  return Math.random() >= 0.5;
 }
+
 function randomInt(max: number) {
   return Math.floor(Math.random() * Math.floor(max));
 }

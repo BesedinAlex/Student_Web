@@ -1,5 +1,11 @@
 <div>
-  <button>Add an active one</button>
-  <button>Add an inactive one</button>
+  <button (click)="createSensor(true)">Add an active one</button>
+  <button (click)="createSensor(false)">Add an inactive one</button>
 </div>
-<div id="here"></div>
+
+<div>
+  <div *ngFor="let sensor of sensors;">
+    <span [ngClass]="{'green-color': sensor.active == true, 'red-color': sensor.active == false}">{{sensor.id}}</span>
+    <button (click)="removeSensor(sensor.id)">Удалить</button>
+  </div>
+</div>
