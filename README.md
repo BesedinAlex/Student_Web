@@ -11,4 +11,6 @@
 09. Events.<br>
 10. Promises.<br>
 11. TypeScript and Angular.<br>
-12. Angular components.
+12. Angular component.
+13. Angular components.
+14. Angular forms.
