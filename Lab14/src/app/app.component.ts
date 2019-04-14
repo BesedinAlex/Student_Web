@@ -18,27 +18,27 @@ export class AppComponent {
 	users: MyUser[] = [];
 
 	constructor() {
-		this.userForm = new FormGroup({ // создание новой формы
-			name: new FormControl(null, [Validators.required]), // поля формы
+		this.userForm = new FormGroup({
+			name: new FormControl(null, [Validators.required]),
 			surname: new FormControl(null, [Validators.required]),
-			emails: new FormArray([ // может быть несколько email, Используем массив
-				new FormControl(null, [Validators.required])
-			])
+			emails: new FormArray([new FormControl(null, [Validators.required])])
 		});
 	}
 
 	onUserFormSubmit() {
-		this.users.push(this.userForm.value); // данные из формы при сабмите добавляем в массив пользователей
-		this.userForm.reset(); // сброс значений полей формы
+		this.users.push(this.userForm.value);
+		this.userForm.reset();
+		for (const clear in this.userForm.controls['emails']) {
+
+    }
 	}
 
 	onAddEmail() {
 		(<FormArray>this.userForm.controls['emails']).push(new FormControl(null, [Validators.required]));
-		// приводим поле формы к типу FormsArray и добавляем
 	}
 
 	onDelEmail(index) {
-		(<FormArray>this.userForm.controls['emails']).removeAt(index); // приводим поле формы к типу FormsArray и удаляем элемент по интедксу
+		(<FormArray>this.userForm.controls['emails']).removeAt(index);
 	}
 
 }
