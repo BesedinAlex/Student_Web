@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-xs-12">
+    <input type="text" class="form-control" [(ngModel)]="searchMonth">
+    <hr>
+    <ul class="list-group">
+      <li class="list-group-item"
+      *ngFor = "let month of months | appMonthFilter:searchMonth; let i = index">{{month.name}}</li>
+    </ul>
+  </div>
+</div>

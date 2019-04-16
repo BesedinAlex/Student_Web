@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row" *ngFor="let user of users">
+    <div class="col-2">{{user.id}}</div>
+    <div class="col-2">{{user.username}}</div>
+    <div class="col-2">{{user.email}}</div>
+    <div class="col-2">{{user.posts}}</div>
+    <hr>
+      <div class="row" *ngFor="let post of posts">
+        <div class="col-2" *ngIf="post.userId === user.id">{{post.id}}</div>
+        <div class="col-2" *ngIf="post.userId === user.id">{{post.title}}</div>
+        <div class="col-2" *ngIf="post.userId === user.id">{{post.body}}</div>
+      </div>
+    <hr>
+  </div>
+</div>
