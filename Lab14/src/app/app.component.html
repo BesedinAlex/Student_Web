@@ -24,19 +24,20 @@
 				</div>
 			</div>
 		</div>
-    <div class="col-2">
-      <div class="form-group">
-        <button class="btn btn-primary" (click)="onAddEmail()">Добавить email</button>
-      </div>
-    </div>
+    
 		<ng-container formArrayName="emails">
-			<div class="row" *ngFor="let e of userForm.get('emails').controls; let i = index">
+			<div class="row" *ngFor="let e of userForm.get('emails').controls; let i = index; let first = first">
 				<div class="col-6">
 					<div class="form-group">
 						<input type="text" class="form-control" placeholder="E-mail" [formControlName]="i">
 					</div>
 				</div>
-				<div class="col-2">
+				<div class="col-2" *ngIf="first">
+					<div class="form-group">
+						<button class="btn btn-primary" (click)="onAddEmail()">Добавить email</button>
+					</div>
+				</div>
+				<div class="col-2" *ngIf="!first">
 					<div class="form-group">
 						<button class="btn btn-danger" (click)="onDelEmail(i)">Удалить email</button>
 					</div>
@@ -44,5 +45,6 @@
 			</div>
 		</ng-container>
 		<button (click)="onUserFormSubmit()" type="submit" class="btn btn-primary" [disabled]="!userForm.valid">Добавить пользователя</button>
+		
 	</form>
 </div>

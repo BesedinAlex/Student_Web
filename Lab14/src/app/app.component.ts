@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
+import { isNullOrUndefined } from 'util';
+import { DataService } from './data.service';
 
 interface MyUser {
 	name?: string;
@@ -12,12 +14,13 @@ interface MyUser {
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
 	userForm: FormGroup;
 	users: MyUser[] = [];
+	usersDb: [];
 
-	constructor() {
+	constructor(private dataService: DataService) {
 		this.userForm = new FormGroup({
 			name: new FormControl(null, [Validators.required]),
 			surname: new FormControl(null, [Validators.required]),
@@ -25,11 +28,21 @@ export class AppComponent {
 		});
 	}
 
+	async ngOnInit() {
+		try {
+			const usersDB = this.dataService.getData();
+			this.usersDb = (isNullOrUndefined(await usersDB)) ? [] : await usersDB;
+		} catch (err) {
+			console.log(err);
+		} finally {
+			console.log(this.usersDb);
+		}
+	}
+
 	onUserFormSubmit() {
 		this.users.push(this.userForm.value);
 		this.userForm.reset();
-		for (const clear in this.userForm.controls['emails']) {
-    }
+		console.log(this.users);
 	}
 
 	onAddEmail() {
