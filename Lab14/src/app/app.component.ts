@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
 
 	userForm: FormGroup;
 	users: MyUser[] = [];
-	usersDb: [];
+	usersDb = [];
 
 	constructor(private dataService: DataService) {
 		this.userForm = new FormGroup({
