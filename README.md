@@ -16,3 +16,4 @@
 14. Angular forms.
 15. Angular pipes.
 16. Angular services.
+17. Angular routing.
