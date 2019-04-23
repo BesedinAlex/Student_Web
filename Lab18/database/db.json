@@ -5,25 +5,17 @@
       "id": 0,
       "firstName": "Alexey",
       "lastName": "Besedin",
-      "middleName": "Vitaly",
-      "phone": "+79175315601",
+      "phoneNumber": "+79175315601",
       "favorite": false,
-      "comment": "Лучший студент группы 171-333. Ставьте ему 5 автоматом."
+      "comment": "Лучший студент группы 171-333. Заслуживает 5 автоматом."
     },
     {
       "id": 1,
-      "firstName": "Varya",
+      "firstName": "Varvara",
       "lastName": "Shashkova",
-      "middleName": "",
-      "phone": "+79990000000",
+      "phoneNumber": "+01110000000",
       "favorite": true,
-      "comment": "Будущий лучший студент на САПР (ещё не поступила), но надеюсь поступит."
+      "comment": "Будущий лучший студент на САПР (ещё не поступила), но ещё не вечер."
     }
-  ],
-  "lastUse":
-  {
-    "filter": "",
-    "sortedBy": "firstName",
-    "sortDirection": true
-  }
+  ]
 }
