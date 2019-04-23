@@ -1,13 +1,12 @@
 <div class="container">
   <div class="card-columns">
-    <div class="card text-dark bg-light mb-3 text-center" *ngFor="let contact of contacts">
+    <div class="card text-dark mb-3 text-center" *ngFor="let contact of contacts">
       <div class="card-body flex-column d-flex">
         <h5 class="card-title">{{contact.firstName}} {{contact.middleName}} {{contact.lastName}}</h5>
         <h6 class="card-subtitle mb-2 text-muted">{{contact.phoneNumber}}</h6>
         <p class="card-text">{{contact.comment}}</p>
-        <a [routerLink]="['/edit', contact.id]" class="btn btn-danger w-25 text-white">Edit</a>
+        <a [routerLink]="['/edit', contact.id]" class="btn btn-danger text-white" style="width: 4em;">Edit</a>
       </div>
     </div>
   </div>
 </div>
-

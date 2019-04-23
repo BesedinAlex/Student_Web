@@ -4,10 +4,10 @@ import {isNullOrUndefined} from 'util';
 
 @Component({
   selector: 'app-main-page',
-  templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.css']
+  templateUrl: './contacts.component.html',
+  styleUrls: ['./contacts.component.css']
 })
-export class MainPageComponent implements OnInit {
+export class ContactsComponent implements OnInit {
 
   contacts: [];
 
