@@ -55,11 +55,11 @@ export class DatabaseService {
     return this.post(url, data, this.options).toPromise();
   }
 
-  async putDataById(url, id, data) {
+  async putData(url, id, data) {
     return this.put(url + '/' + id, data, this.options).toPromise();
   }
 
-  async deleteDataById(url, id) {
+  async deleteData(url, id) {
     return this.delete(url + '/' + id, this.options).toPromise();
   }
 

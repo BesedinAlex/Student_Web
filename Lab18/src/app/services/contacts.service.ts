@@ -28,4 +28,12 @@ export class ContactsService extends DatabaseService {
     }
   }
 
+  // async editContact(data) {
+  //   try {
+  //     await this.putData('contacts', data.id, data);
+  //   } catch (err) {
+  //     alert('Contact wasn\'t changed.');
+  //   }
+  // }
+
 }

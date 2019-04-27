@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ContactsService} from '../services/contacts.service';
 
 @Component({
@@ -13,27 +13,27 @@ export class AddContactComponent {
 
   constructor(
     private contacts: ContactsService
-  ) { }
+  ) {
+    this.form = new FormGroup({
+      firstName: new FormControl(null),
+      lastName: new FormControl(null),
+      phoneNumber: new FormControl(null, [Validators.required]),
+      favorite: new FormControl(false),
+      comment: new FormControl(null)
+    });
+  }
 
-  // await this.addContact({firstName: 'Andrey', lastName: 'Sidorov', phoneNumber: '+71110000001', favorite: false});
-  async addContact(data) {
+  async addContact() {
+    const data = this.form.value;
     let result;
-    let id = 0;
+    let id = -1;
     do {
-      // @ts-ignore
-      result = this.contacts.data.find( obj => obj.id === id);
       id++;
+      // @ts-ignore
+      result = this.contacts.data.find(obj => obj.id === id);
     } while (result !== undefined);
-    data.id = id - 1;
+    data.id = id;
     await this.contacts.addContact(data);
   }
 
-}
-
-interface Contact {
-  firstName?: string;
-  lastName?: string;
-  phoneNumber?: string;
-  favorite: boolean;
-  comment: string;
 }
