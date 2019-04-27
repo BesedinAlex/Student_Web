@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -63,4 +62,5 @@ export class DatabaseService {
   async deleteDataById(url, id) {
     return this.delete(url + '/' + id, this.options).toPromise();
   }
+
 }

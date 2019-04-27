@@ -1,28 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import {DatabaseService} from '../services/database.service';
-import {isNullOrUndefined} from 'util';
+import {Component} from '@angular/core';
+import {ContactsService} from '../services/contacts.service';
 
 @Component({
-  selector: 'app-main-page',
+  selector: 'app-contacts',
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.css']
 })
-export class ContactsComponent implements OnInit {
-
-  contacts: [];
+export class ContactsComponent {
 
   constructor(
-    private db: DatabaseService
+    private contacts: ContactsService
   ) { }
-
-  async ngOnInit() {
-    try {
-      const contacts = this.db.getData('contacts');
-      this.contacts = (isNullOrUndefined(await contacts)) ? [] : await contacts;
-      console.log(this.contacts);
-    } catch (err) {
-      console.log(err);
-    }
-  }
 
 }

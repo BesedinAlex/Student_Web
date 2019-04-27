@@ -1,6 +1,6 @@
-import {Component, EventEmitter} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Output} from '@angular/core/src/metadata/directives';
+import {Component} from '@angular/core';
+import {FormGroup} from '@angular/forms';
+import {ContactsService} from '../services/contacts.service';
 
 @Component({
   selector: 'app-add-contact',
@@ -9,30 +9,23 @@ import {Output} from '@angular/core/src/metadata/directives';
 })
 export class AddContactComponent {
 
-  @Output() contact = new EventEmitter<{
-    firstName: string,
-    lastName: string,
-    phoneNumber: string,
-    favorite: string,
-    comment: string
-  }>();
-
   form: FormGroup;
 
-  constructor() {
-    this.form = new FormGroup({
-      firstName: new FormControl(null),
-      lastName: new FormControl(null),
-      phoneNumber: new FormControl(null, [Validators.required]),
-      favorite: new FormControl(false),
-      comment: new FormControl(null),
-    });
-  }
+  constructor(
+    private contacts: ContactsService
+  ) { }
 
-  addContact() {
-    this.contact.emit({
-      ...this.form.value
-    });
+  // await this.addContact({firstName: 'Andrey', lastName: 'Sidorov', phoneNumber: '+71110000001', favorite: false});
+  async addContact(data) {
+    let result;
+    let id = 0;
+    do {
+      // @ts-ignore
+      result = this.contacts.data.find( obj => obj.id === id);
+      id++;
+    } while (result !== undefined);
+    data.id = id - 1;
+    await this.contacts.addContact(data);
   }
 
 }
