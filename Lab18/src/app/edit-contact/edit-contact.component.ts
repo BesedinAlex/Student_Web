@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {FormGroup} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ContactsService} from '../services/contacts.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-edit-contact',
@@ -10,15 +11,49 @@ import {ContactsService} from '../services/contacts.service';
 export class EditContactComponent implements OnInit {
 
   form: FormGroup;
+  id: number;
+  contact;
 
-  constructor(private contacts: ContactsService) { }
-
-  async ngOnInit() {
-    // await this.editContact({firstName: 'Andrey', lastName: 'Sidorov', phoneNumber: '+71110000001', favorite: false, id: 2});
+  constructor(
+    private router: Router,
+    private contacts: ContactsService,
+    private currentRoute: ActivatedRoute
+  ) {
+    this.currentRoute.params.subscribe(param => this.id = param.id);
   }
 
-  async editContact(data) {
-    // await this.contacts.editContact(data);
+  ngOnInit() {
+    try {
+      // @ts-ignore
+      this.contact = this.contacts.data.find(contact => contact.id === +this.id);
+    } catch (error) {
+      this.router.navigate(['/']);
+    }
+    this.form = new FormGroup({
+      firstName: new FormControl(this.contact.firstName),
+      lastName: new FormControl(this.contact.lastName),
+      phoneNumber: new FormControl(this.contact.phoneNumber, [Validators.required]),
+      favorite: new FormControl(this.contact.favorite),
+      comment: new FormControl(this.contact.comment)
+    });
+  }
+
+  async editContact() {
+    await this.contacts.editContact(+this.id, this.form.value);
+    const success = this.contacts.done;
+    if (success) {
+      this.router.navigate(['/']);
+    }
+  }
+
+  async deleteContact() {
+    if (confirm('Are you sure you want to delete this contact?')) {
+      await this.contacts.deleteContact(+this.id);
+      const success = this.contacts.done;
+      if (success) {
+        this.router.navigate(['/']);
+      }
+    }
   }
 
 }
