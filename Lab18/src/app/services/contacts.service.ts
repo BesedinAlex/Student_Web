@@ -7,7 +7,7 @@ import {DatabaseService} from './database.service';
 export class ContactsService extends DatabaseService {
 
   data: [];
-  done: boolean;
+  lastActionIsDone: boolean;
   private dataIsLoaded = false;
 
   async getContacts() {
@@ -20,12 +20,12 @@ export class ContactsService extends DatabaseService {
   }
 
   async addContact(data) {
-    this.done = false;
+    this.lastActionIsDone = false;
     if (this.dataIsLoaded) {
       try {
         await this.postData('contacts', data);
         await this.getContacts();
-        this.done = true;
+        this.lastActionIsDone = true;
       } catch (err) {
         alert('Connection to database was lost. Trying to reconnect again.');
         await this.getContacts();
@@ -39,11 +39,11 @@ export class ContactsService extends DatabaseService {
   }
 
   async editContact(id, data) {
-    this.done = false;
+    this.lastActionIsDone = false;
     try {
       await this.putData('contacts', id, data);
       await this.getContacts();
-      this.done = true;
+      this.lastActionIsDone = true;
     } catch (err) {
       alert('Connection to database was lost. Trying to reconnect again.');
       await this.getContacts();
@@ -51,11 +51,11 @@ export class ContactsService extends DatabaseService {
   }
 
   async deleteContact(id) {
-    this.done = false;
+    this.lastActionIsDone = false;
     try {
       await this.deleteData('contacts', id);
       await this.getContacts();
-      this.done = true;
+      this.lastActionIsDone = true;
     } catch (err) {
       alert('Connection to database was lost. Trying to reconnect again.');
       await this.getContacts();

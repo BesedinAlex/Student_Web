@@ -27,8 +27,7 @@ export class AddContactComponent {
 
   async addContact() {
     await this.contacts.addContact(this.form.value);
-    const success = this.contacts.done;
-    if (success) {
+    if (this.contacts.lastActionIsDone) {
       this.router.navigate(['/']);
     }
   }

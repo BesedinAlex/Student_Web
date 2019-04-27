@@ -40,8 +40,7 @@ export class EditContactComponent implements OnInit {
 
   async editContact() {
     await this.contacts.editContact(+this.id, this.form.value);
-    const success = this.contacts.done;
-    if (success) {
+    if (this.contacts.lastActionIsDone) {
       this.router.navigate(['/']);
     }
   }
@@ -49,8 +48,7 @@ export class EditContactComponent implements OnInit {
   async deleteContact() {
     if (confirm('Are you sure you want to delete this contact?')) {
       await this.contacts.deleteContact(+this.id);
-      const success = this.contacts.done;
-      if (success) {
+      if (this.contacts.lastActionIsDone) {
         this.router.navigate(['/']);
       }
     }
