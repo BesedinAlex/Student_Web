@@ -8,8 +8,8 @@ import {ContactsService} from '../services/contacts.service';
 })
 export class ContactsComponent {
 
-  constructor(
-    private contacts: ContactsService
-  ) { }
+  constructor(private contacts: ContactsService) { }
 
 }
+
+

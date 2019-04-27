@@ -8,14 +8,10 @@ import {ContactsService} from './services/contacts.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(
-    private contacts: ContactsService
-  ) { }
+  constructor(private contacts: ContactsService) { }
 
   async ngOnInit() {
-    if (!this.contacts.dataIsLoaded) {
-      await this.contacts.getContacts();
-    }
+    await this.contacts.getContacts();
   }
 
 }

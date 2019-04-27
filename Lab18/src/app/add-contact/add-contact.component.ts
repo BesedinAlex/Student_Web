@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ContactsService} from '../services/contacts.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-contact',
@@ -12,6 +13,7 @@ export class AddContactComponent {
   form: FormGroup;
 
   constructor(
+    private router: Router,
     private contacts: ContactsService
   ) {
     this.form = new FormGroup({
@@ -24,16 +26,11 @@ export class AddContactComponent {
   }
 
   async addContact() {
-    const data = this.form.value;
-    let result;
-    let id = -1;
-    do {
-      id++;
-      // @ts-ignore
-      result = this.contacts.data.find(obj => obj.id === id);
-    } while (result !== undefined);
-    data.id = id;
-    await this.contacts.addContact(data);
+    await this.contacts.addContact(this.form.value);
+    const success = this.contacts.contactAddedSuccessfully;
+    if (success) {
+      await this.router.navigate(['/']);
+    }
   }
 
 }

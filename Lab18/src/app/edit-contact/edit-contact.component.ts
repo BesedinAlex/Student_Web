@@ -11,9 +11,7 @@ export class EditContactComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(
-    private contacts: ContactsService
-  ) { }
+  constructor(private contacts: ContactsService) { }
 
   async ngOnInit() {
     // await this.editContact({firstName: 'Andrey', lastName: 'Sidorov', phoneNumber: '+71110000001', favorite: false, id: 2});

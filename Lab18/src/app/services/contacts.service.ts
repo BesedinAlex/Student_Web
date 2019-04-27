@@ -7,24 +7,36 @@ import {DatabaseService} from './database.service';
 export class ContactsService extends DatabaseService {
 
   data: [];
-  dataIsLoaded = false;
+  contactAddedSuccessfully: boolean;
+  private dataIsLoaded = false;
 
   async getContacts() {
     try {
       this.data = await this.getData('contacts');
       this.dataIsLoaded = true;
     } catch (err) {
-      alert('Contacts weren\'t loaded.');
+      alert('Unable to access database. Try again.');
     }
   }
 
   async addContact(data) {
-    try {
-      // @ts-ignore
-      this.data.push(data);
-      await this.postData('contacts', data);
-    } catch (err) {
-      alert('Contact wasn\'t added.');
+    this.contactAddedSuccessfully = false;
+    if (this.dataIsLoaded) {
+      try {
+        await this.postData('contacts', data);
+        // @ts-ignore
+        this.data.push(data);
+        await this.getContacts();
+        this.contactAddedSuccessfully = true;
+      } catch (err) {
+        alert('Connection to database was lost. Trying to reconnect again.');
+        await this.getContacts();
+      }
+    } else {
+      await this.getContacts();
+      if (this.data !== undefined) {
+        await this.addContact(data);
+      }
     }
   }
 
