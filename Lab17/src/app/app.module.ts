@@ -1,25 +1,28 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { MainComponent } from './main/main.component';
-import { ItemEditComponent } from './item-edit/item-edit.component';
-import { CatalogComponent } from './catalog/catalog.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {AppComponent} from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {ContactsComponent} from './contacts/contacts.component';
+import {HeaderComponent} from './header/header.component';
+import {HttpClientModule} from '@angular/common/http';
+import {AddContactComponent} from './add-contact/add-contact.component';
+import {EditContactComponent} from './edit-contact/edit-contact.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {FilterPipe} from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ContactsComponent,
     HeaderComponent,
-    MainComponent,
-    ItemEditComponent,
-    CatalogComponent
+    AddContactComponent,
+    EditContactComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     ReactiveFormsModule
   ],
   providers: [],

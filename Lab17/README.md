@@ -1,6 +1,10 @@
-# Routinglesson
+# Lab18
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
+## Access database
+
+Run `npm run db` to start json-server. You will need to `npm i json-server -g` first.
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.5.
 
 ## Development server
 

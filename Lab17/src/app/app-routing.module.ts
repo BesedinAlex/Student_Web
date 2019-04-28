@@ -1,17 +1,23 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { MainComponent } from './main/main.component';
-import { ItemEditComponent } from './item-edit/item-edit.component';
-import { CatalogComponent } from './catalog/catalog.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule, Routes} from '@angular/router';
+import {ContactsComponent} from './contacts/contacts.component';
+import {AddContactComponent} from './add-contact/add-contact.component';
+import {EditContactComponent} from './edit-contact/edit-contact.component';
 
 const routes: Routes = [
-  { path: '', component: MainComponent },
-  { path: 'catalog', component: CatalogComponent },
-  { path: 'edit/:id', component: ItemEditComponent }
+  {path: '', component: ContactsComponent},
+  {path: 'add', component: AddContactComponent},
+  {path: 'edit/:id', component: EditContactComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes),
+    CommonModule
+  ],
+  exports: [
+    RouterModule
+  ]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
