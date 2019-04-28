@@ -8,6 +8,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {AddContactComponent} from './add-contact/add-contact.component';
 import {EditContactComponent} from './edit-contact/edit-contact.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {FilterPipe} from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     ContactsComponent,
     HeaderComponent,
     AddContactComponent,
-    EditContactComponent
+    EditContactComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
