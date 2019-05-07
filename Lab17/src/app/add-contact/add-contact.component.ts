@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
 export class AddContactComponent {
 
   form: FormGroup;
+  mask = [/\d/, ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
 
   constructor(
     private router: Router,

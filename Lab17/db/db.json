@@ -1,24 +1,24 @@
 {
   "contacts": [
     {
-      "id": 0,
       "firstName": "Alexey",
       "lastName": "Besedin",
-      "phoneNumber": "+79175315601",
+      "phoneNumber": "7 (917) 531-5601",
       "favorite": false,
-      "comment": "Лучший студент группы 171-333. Заслуживает 5 автоматом."
+      "comment": "Лучший студент группы 171-333. Заслуживает 5 автоматом.",
+      "id": 0
     },
     {
-      "id": 1,
       "firstName": "Varvara",
       "lastName": "Shashkova",
-      "phoneNumber": "+01110000000",
+      "phoneNumber": "0 (111) 000-0000",
       "favorite": true,
-      "comment": "Будущий лучший студент на САПР (ещё не поступила), но ещё не вечер."
+      "comment": "Будущий лучший студент на САПР (ещё не поступила), но ещё не вечер.",
+      "id": 1
     }
   ],
   "sort": {
     "search": "",
-    "option": 0
+    "option": 1
   }
 }

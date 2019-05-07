@@ -9,6 +9,7 @@ import {AddContactComponent} from './add-contact/add-contact.component';
 import {EditContactComponent} from './edit-contact/edit-contact.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {FilterPipe} from './pipes/filter.pipe';
+import {TextMaskModule} from 'angular2-text-mask';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {FilterPipe} from './pipes/filter.pipe';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TextMaskModule
   ],
   providers: [],
   bootstrap: [AppComponent]

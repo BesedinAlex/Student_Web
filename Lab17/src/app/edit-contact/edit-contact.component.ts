@@ -13,6 +13,7 @@ export class EditContactComponent implements OnInit {
   form: FormGroup;
   id: number;
   contact;
+  mask = [/\d/, ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
 
   constructor(
     private router: Router,
