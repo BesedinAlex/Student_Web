@@ -1,5 +1,6 @@
 # "Web-development" labs
 
+## Required labs:
 01. Basic syntax.
 02. Arrays.
 03. Functions.
