@@ -1,0 +1,21 @@
+<div class="container">
+  <form [formGroup]="form">
+    <div class="form-group">
+      <label>Device Name</label>
+      <input type="text" class="form-control" formControlName="name" placeholder="Apple iPhone X">
+    </div>
+    <div class="form-group">
+      <label>Screen</label>
+      <input type="text" class="form-control" formControlName="screen" placeholder="5.8-inch, 1125x2436">
+    </div>
+    <div class="form-group">
+      <label>Camera</label>
+      <input type="text" class="form-control" formControlName="camera" placeholder="12 MP">
+    </div>
+    <div class="form-group">
+      <label>Memory</label>
+      <input type="text" class="form-control" formControlName="memory" placeholder="64Gb or 256 Gb">
+    </div>
+    <button (click)="addDevice()" type="submit" class="btn btn-success" [disabled]="!form.valid">Add</button>
+  </form>
+</div>

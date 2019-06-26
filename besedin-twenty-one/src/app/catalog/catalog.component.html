@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="card-columns">
+    <div class="card text-dark mb-3 text-center" *ngFor="let device of devices.data">
+      <div class="card-body flex-column d-flex">
+        <h5 class="card-title">{{device.name}}</h5>
+        <p class="card-text"><strong>Screen</strong>: {{device.screen}}</p>
+        <p class="card-text"><strong>Camera</strong>: {{device.camera}}</p>
+        <p class="card-text"><strong>Memory</strong>: {{device.memory}}</p>
+      </div>
+    </div>
+  </div>
+</div>

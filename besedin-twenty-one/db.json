@@ -1,0 +1,39 @@
+{
+  "devices": [
+    {
+      "name": "Xiaomi Redmi 4X 32Gb",
+      "screen": "5-inch, 1280x720",
+      "camera": "13 MP, auto-focus",
+      "memory": "32Gb, SD memory",
+      "id": 0
+    },
+    {
+      "name": "Apple iPhone X",
+      "screen": "5.8-inch, 1125x2436",
+      "camera": "12 MP",
+      "memory": "64Gb or 256Gb",
+      "id": 1
+    },
+    {
+      "name": "Samsung Galaxy S10",
+      "screen": "6.1-inch, QHD+",
+      "camera": "16MP",
+      "memory": "126Gb or 512Gb",
+      "id": 2
+    },
+    {
+      "name": "Google Pixel 3",
+      "screen": "5.5-inch, 2160x1080",
+      "camera": "12.2MP",
+      "memory": "64Gb or 128Gb",
+      "id": 3
+    },
+    {
+      "name": "Nokia 9 PureView",
+      "screen": "5.99-inch, QHD+",
+      "camera": "12MP",
+      "memory": "128Gb",
+      "id": 4
+    }
+  ]
+}
